@@ -9,6 +9,7 @@ Created on Sun Jul 14 09:26:10 2019
 from twitter import *
 from credentials import consumer_key, consumer_secret, access_token_key, access_token_secret
 
+# modifying our search function to take in a keyword as an argument
 def search(keyword):
     text = []
     t = Twitter(auth=OAuth(access_token_key, access_token_secret, 
@@ -22,6 +23,7 @@ def search(keyword):
 #result = search("trump")
 #print(result)
 
+# making our search function more pythonic and elegant
 def search2(keyword):
     t = Twitter(auth=OAuth(access_token_key, access_token_secret, 
                            consumer_key, consumer_secret))

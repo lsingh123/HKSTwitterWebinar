@@ -6,6 +6,8 @@ Created on Fri Jun 21 17:42:19 2019
 @author: lavanyasingh
 """
 
+# performing some simple sentiment analysis on tweets as an example of the 
+# work that can be done using the Twitter API
 
 from twitter import *
 from credentials import consumer_key, consumer_secret, access_token_key, access_token_secret
@@ -25,7 +27,10 @@ def search_while(keyword, c):
         text += [tweet['text'] for tweet in search_results['statuses']]
         since_id = search_results['search_metadata']['since_id']
     return text[:150]
-    
+
+# returns a numerical score for a particular sentence
+# a positive score indicates positive sentiment, a score of 0 indicates
+# neutrality, and a negative score indicates negative sentiment
 def nltk_sentiment(sentence):
     nltk_sentiment = SentimentIntensityAnalyzer()
     score = nltk_sentiment.polarity_scores(sentence)
